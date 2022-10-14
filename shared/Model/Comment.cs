@@ -9,9 +9,20 @@ namespace shared.Model
         public DateTime ?Date { get; set; }
         public string ?Author { get; set; }
         public int PostId { get; set; }
-     
+        public int ?Upvotes { get; set; }
+        public int ?Downvotes { get; set; }
 
-
+        public Comment(string Author = "", string content = "", int upvotes = 0, int downvotes = 0) {
+        Content = content;
+        Upvotes = upvotes;
+        Downvotes = downvotes;
+        Author = Author;
+    }
+         public Comment() {
+        CommentId = 0;
+        Content = "";
+        Upvotes = 0;
+        Downvotes = 0;
     }
 
 }

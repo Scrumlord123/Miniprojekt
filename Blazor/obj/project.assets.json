@@ -538,6 +538,16 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/shared.dll": {}
+        }
       }
     },
     "net6.0/browser-wasm": {
@@ -1070,6 +1080,16 @@
         },
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
+        }
+      },
+      "shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/shared.dll": {}
         }
       }
     }
@@ -1868,13 +1888,19 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "shared/1.0.0": {
+      "type": "project",
+      "path": "../shared/shared.csproj",
+      "msbuildProject": "../shared/shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.AspNetCore.Components.WebAssembly >= 6.0.8",
       "Microsoft.AspNetCore.Components.WebAssembly.Authentication >= 6.0.8",
-      "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 6.0.8"
+      "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 6.0.8",
+      "shared >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1901,7 +1927,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/mac/Documents/3_semester/softwarearkitektur/Solution_Miniprojekt/shared/shared.csproj": {
+              "projectPath": "/Users/mac/Documents/3_semester/softwarearkitektur/Solution_Miniprojekt/shared/shared.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
