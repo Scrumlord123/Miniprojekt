@@ -24,6 +24,5 @@ namespace shared.Model
         Upvotes = 0;
         Downvotes = 0;
     }
-
 }
-
+};
