@@ -22,18 +22,39 @@ else
         @foreach (var post in posts)
         {
             <tr>
+                <td>@post.Title</td>
                 <!-- 
                     These "a href" links will match the route in the page 'PostItem.razor'.
                     The route is defined as "/post/{id}" and the id is the post id.
                 -->
-                <td><a href="/post/@post.Id">@post.Title</a></td>
+                <td><a href="/post/@post.PostId">@post.Title</a></td>
                 <td>@post.Content</td>
                 <td>@(post.Upvotes - post.Downvotes)</td>
-                <td><button @onclick="() => Upvote(post.Id)">Upvote</button></td>
-                <td><button @onclick="() => Downvote(post.Id)">Downvote</button></td>
+                <td><button @onclick="() => Upvote(post.PostId)">Upvote</button></td>
+                <td><button @onclick="() => Downvote(post.PostId)">Downvote</button></td>
             </tr>
         }
     </table>
 
     <br/>
+}
+
+@code {
+    private Post[]? posts;
+    private Post? votePost;
+
+    protected override async Task OnInitializedAsync()
+    {
+        posts = await apiService.GetPosts();
+    }
+
+      private async void Upvote(int id)
+    {
+        var updatedPost = await apiService.UpvotePost(id);
+    }
+
+    private async void Downvote(int id)
+    {
+        Console.WriteLine("Not implemented 😪");
+    }
 }
